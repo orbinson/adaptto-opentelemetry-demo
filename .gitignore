@@ -1,0 +1,8 @@
+.idea
+
+signoz/dashboards/*
+signoz/data/alertmanager/*
+signoz/data/clickhouse/*
+signoz/data/signoz/*
+signoz/data/zookeeper-1/*
+!signoz/**/.gitkeep
