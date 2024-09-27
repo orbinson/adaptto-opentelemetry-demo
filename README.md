@@ -72,3 +72,8 @@ curl http://localhost:8080/product/backend
 ```bash
 curl http://localhost:8080/product/backend-error
 ```
+
+TODO
+- Create aem archetype with opentelemetry
+- Update spring boot application to render a html that uses headless aem 
+- Update aem archetype to have an example page that calls  spring boot  rest api
