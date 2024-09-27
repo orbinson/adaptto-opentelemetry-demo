@@ -20,13 +20,13 @@ mvn spring-boot:run -f product-service/pom.xml
 Place the cq-quickstart or aem-sdk jar in the `aem` folder and start AEM using the startup script that sets the params to connect with the OpenTelemetry collector:
 
 ```bash
-bash aem-start.sh
+bash aem/aem-start.sh
 ```
 
 Deploy the AEM project to your locally running AEM:
 
 ```bash
-mvn clean install -Pauto-deploy -f aem-project/pom.xml
+mvn clean install -PautoInstallSinglePackage -f aem-site/pom.xml
 ```
 
 ### Connecting to an APM tool
