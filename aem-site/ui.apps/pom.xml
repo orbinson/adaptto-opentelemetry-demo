@@ -111,15 +111,6 @@
             <version>${project.version}</version>
         </dependency>
 
-
-
-        <dependency>
-            <groupId>be.orbinson.aem.site</groupId>
-            <artifactId>aem-site.ui.apps.structure</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>
