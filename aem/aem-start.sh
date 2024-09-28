@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
 export OTEL_RESOURCE_ATTRIBUTES=service.name=aem-author
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
@@ -22,7 +22,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
     if ! [[ $JAVA_VERSION == 11* ]]; then
         echo "Current version of Java is not set to 11, please update your java / change your JAVA_HOME to a JDK 11 version."
         exit 1
-    fi 
+    fi
 
     # shellcheck disable=SC2144
     if ! [ -f aem-*.jar ]; then
