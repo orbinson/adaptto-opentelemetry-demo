@@ -4,9 +4,11 @@ This project is used as reference project for the adaptTo Observability presenta
 
 ## Installation
 
-Included is a Spring-based application and an AEM-based project to showcase on how OpenTelemetry can help you in connecting the dots between the different microservices in your platform.
+Included is a Spring-based application and an AEM-based project to showcase on how OpenTelemetry can help you in
+connecting the dots between the different microservices in your platform.
 
 Set up the OpenTelemetry Collector
+
 ```bash
 docker compose -f generic-otel-collector/docker-compose.yaml up -d
 ```
@@ -17,7 +19,8 @@ Start the spring application:
 mvn spring-boot:run -f product-service/pom.xml
 ```
 
-Place the cq-quickstart or aem-sdk jar in the `aem` folder and start AEM using the startup script that sets the params to connect with the OpenTelemetry collector:
+Place the cq-quickstart or aem-sdk jar in the `aem` folder and start AEM using the startup script that sets the params
+to connect with the OpenTelemetry collector:
 
 ```bash
 bash aem/aem-start.sh
@@ -31,15 +34,18 @@ mvn clean install -PautoInstallSinglePackage -f aem-site/pom.xml
 
 ### Connecting to an APM tool
 
-The most basic setup sends the traces and metrics to a output file in `generic-otel-collector/output`. One can connect to their own APM toolings by updating exporters in `generic-otel-collector/otel-collector-config.yaml`
+The most basic setup sends the traces and metrics to a output file in `generic-otel-collector/output`. One can connect
+to their own APM toolings by updating exporters in `generic-otel-collector/otel-collector-config.yaml`
 
-An example of an APM tool that can run self-hosted in linux and macos on docker is Signoz, a simple Signoz setup has been added and can be run by using the following command **after bringing down the generic otel collector** :
+An example of an APM tool that can run self-hosted in linux and macos on docker is Signoz, a simple Signoz setup has
+been added and can be run by using the following command **after bringing down the generic otel collector** :
 
 ```bash
 docker compose -f signoz/docker-compose.yaml up -d
 ```
 
-Alternatively, you can use the install script from their site if not all toolings are available on your local machine: https://signoz.io/docs/install/docker/#install-signoz-using-the-install-script
+Alternatively, you can use the install script from their site if not all toolings are available on your local
+machine: https://signoz.io/docs/install/docker/#install-signoz-using-the-install-script
 
 Navigate to `http://localhost:3301` to log into Signoz
 
@@ -74,7 +80,8 @@ curl http://localhost:8080/product/backend-error
 ```
 
 TODO
-- Fix ServiceLoader to get MetricsExporter class
+
+- Add frameworks package to pre-install the opentelemetry and fix load order issues
 - Create aem archetype with opentelemetry
-- Update spring boot application to render a html that uses headless aem 
-- Update aem archetype to have an example page that calls  spring boot  rest api
+- Update spring boot application to render a html that uses headless aem
+- Update aem archetype to have an example page that calls spring boot rest api

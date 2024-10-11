@@ -14,6 +14,10 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<workspaceFilter version="1.0">
-    <filter root="/apps/aem-site-packages"/>
-</workspaceFilter>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="vlt:PackageDefinition"
+          providerLink="https://github.com/adobe/aem-project-archetype/releases"
+          providerName="Adobe Systems Inc."
+          providerUrl="https://www.adobe.com"
+          testedWith="AEM 6.5">
+</jcr:root>

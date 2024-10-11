@@ -13,6 +13,7 @@
 
     <modules>
         <module>all</module>
+        <module>frameworks</module>
         <module>core</module>
         <module>ui.apps</module>
         <module>ui.config</module>
