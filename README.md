@@ -16,7 +16,7 @@ docker compose -f generic-otel-collector/docker-compose.yaml up -d
 Start the spring application:
 
 ```bash
-mvn spring-boot:run -f product-service/pom.xml
+mvn clean install spring-boot:run -f product-service/pom.xml
 ```
 
 Place the cq-quickstart or aem-sdk jar in the `aem` folder and start AEM using the startup script that sets the params

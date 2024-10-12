@@ -5,7 +5,6 @@
         cq:conf="/conf/aem-site"
         jcr:primaryType="nt:unstructured"
         jcr:title="AEM Site">
-        <folderThumbnail/>
     </jcr:content>
     <asset.jpg/>
 </jcr:root>

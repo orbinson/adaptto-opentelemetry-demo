@@ -5,7 +5,7 @@
     <jcr:content
             cq:template="/conf/wknd/settings/wcm/templates/content-page-template"
             jcr:primaryType="cq:PageContent"
-            jcr:title="External Integration"
+            jcr:title="Product Page"
             sling:resourceType="wknd/components/page">
         <root
                 jcr:primaryType="nt:unstructured"
@@ -18,9 +18,9 @@
                 <title
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wknd/components/title"/>
-                <external-integration
+                <product
                         jcr:primaryType="nt:unstructured"
-                        sling:resourceType="aem-site/components/external-integration"/>
+                        sling:resourceType="aem-site/components/product"/>
             </container>
         </root>
     </jcr:content>
