@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 
+generic-otel-collector/output/output.json
 
 signoz/dashboards/*
 signoz/data/alertmanager/*
