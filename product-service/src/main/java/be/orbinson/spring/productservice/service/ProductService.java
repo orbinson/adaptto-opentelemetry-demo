@@ -30,7 +30,7 @@ public class ProductService {
         }
 
         String title = "Product Title";
-        // Do a call to another http service 
+        // Do a call to another http service
         if (id.equals("backend") || id.equals("backend-error")) {
             title = "Product Title from backend";
             queryBackend();
@@ -42,7 +42,7 @@ public class ProductService {
 
     private void queryBackend() {
         String response = webClient.get()
-                .uri("http://127.0.0.1:4502/content/wknd/language-masters/en/about-us.model.json")
+                .uri("http://127.0.0.1:4502/example/servlet")
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
