@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
-export OTEL_RESOURCE_ATTRIBUTES=service.name=aem-author
+export OTEL_SERVICE_NAME=aem-author
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
