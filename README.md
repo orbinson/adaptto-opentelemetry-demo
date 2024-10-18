@@ -79,9 +79,9 @@ curl http://localhost:8080/product/backend
 curl http://localhost:8080/product/backend-error
 ```
 
-TODO
+**TODO:**
 
-- Add frameworks package to pre-install the opentelemetry and fix load order issues
-- Create aem archetype with opentelemetry
-- Update spring boot application to render a html that uses headless aem
-- Update aem archetype to have an example page that calls spring boot rest api
+- Fix unhappy flow when AEM can't fetch products 
+- Add test urls to README
+- Add dashboards for signoz
+- Update README flow
