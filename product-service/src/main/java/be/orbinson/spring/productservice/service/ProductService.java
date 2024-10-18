@@ -2,11 +2,14 @@ package be.orbinson.spring.productservice.service;
 
 import be.orbinson.spring.productservice.model.Product;
 import io.opentelemetry.instrumentation.annotations.WithSpan;
+import org.apache.commons.text.WordUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunctions;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.Base64;
 
 @Component
 public class ProductService {
@@ -24,28 +27,27 @@ public class ProductService {
     @WithSpan
     public Product getProduct(String id) throws Exception {
         // Generate service (subspan) error
-        if (id.equals("caught-error")) {
-            LOGGER.warn("Product with id 0 should not be used");
+        if (id.equals("product-service-error")) {
+            LOGGER.warn("Product should not be used");
             throw new Exception("Error while fetching products");
         }
 
-        String title = "Product Title";
-        // Do a call to another http service 
+        String title = WordUtils.capitalizeFully(id.replace("-", " "));
+        // Do a call to another http service
         if (id.equals("backend") || id.equals("backend-error")) {
-            title = "Product Title from backend";
-            queryBackend();
+            title = queryBackend();
         }
 
         LOGGER.info("Fetch product with id '{}'", id);
         return new Product(id, title);
     }
 
-    private void queryBackend() {
-        String response = webClient.get()
-                .uri("http://127.0.0.1:4502/content/wknd/language-masters/en/about-us.model.json")
+    private String queryBackend() {
+        return webClient.get()
+                .uri("http://127.0.0.1:4502/apps/aem-site/endpoints/example/api")
+                .header("Authorization", "Basic " + Base64.getEncoder().encodeToString("admin:admin".getBytes()))
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
-        LOGGER.info("Got response: {}", response);
     }
 }
