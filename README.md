@@ -7,6 +7,7 @@ This project is used as reference project for the adaptTo Observability presenta
 Included is a Spring-based application and an AEM-based project to showcase on how OpenTelemetry can help you in connecting the dots between the different microservices in your platform.
 
 Set up the OpenTelemetry Collector
+
 ```bash
 docker compose -f generic-otel-collector/docker-compose.yaml up -d
 ```
@@ -33,7 +34,7 @@ mvn clean install -PautoInstallSinglePackage -f aem-site/pom.xml
 
 The most basic setup sends the traces and metrics to a output file in `generic-otel-collector/output`. One can connect to their own APM toolings by updating exporters in `generic-otel-collector/otel-collector-config.yaml`
 
-An example of an APM tool that can run self-hosted in linux and macos on docker is Signoz, a simple Signoz setup has been added and can be run by using the following command **after bringing down the generic otel collector** :
+An example of an APM tool that can run self-hosted in linux and macOS on docker is Signoz, a simple Signoz setup has been added and can be run by using the following command **after bringing down the generic otel collector** :
 
 ```bash
 docker compose -f signoz/docker-compose.yaml up -d

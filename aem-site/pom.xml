@@ -34,7 +34,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2024.9.17964.20240924T170544Z-240800</aem.sdk.api>
+        <aem.sdk.api>2024.7.17098.20240711T134106Z-240600</aem.sdk.api>
         <aemanalyser.version>1.4.10</aemanalyser.version>
         <componentGroupName>AEM Site</componentGroupName>
     </properties>
@@ -453,9 +453,6 @@
         </profile>
     </profiles>
 
-    <!-- ====================================================================== -->
-    <!-- D E P E N D E N C I E S -->
-    <!-- ====================================================================== -->
     <dependencyManagement>
         <dependencies>
             <dependency>

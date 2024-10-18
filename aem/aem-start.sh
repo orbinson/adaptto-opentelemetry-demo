@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
-export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
-export OTEL_RESOURCE_ATTRIBUTES=service.name=aem-author
+set -euo pipefail
+
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+export OTEL_SERVICE_NAME=aem-author
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 (
-    cd "$SCRIPT_DIR"
+    cd "$SCRIPT_DIR" || exit 1
 
     if type -p java > /dev/null; then
         JAVA_EXEC=java
@@ -27,6 +30,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
     # shellcheck disable=SC2144
     if ! [ -f aem-*.jar ]; then
         echo "Error: No AEM quickstart jar (aem-*.jar) found"
+        exit 1
     fi
 
     echo "==> Start AEM using quickstart jar"
