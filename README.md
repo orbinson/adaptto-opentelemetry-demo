@@ -81,7 +81,13 @@ curl http://localhost:8080/product/backend-error
 
 **TODO:**
 
-- Fix unhappy flow when AEM can't fetch products 
 - Add test urls to README
 - Add dashboards for signoz
 - Update README flow
+
+**Demo Flow**
+
+- Show opentelemetry osgi wrappers and tell about the difficulties (uber jar vs single jars, netty vs okhttp, service loader, feature model it tests)
+- Show aemaacs opentelemetry instrumentation (OpenTelemetryFactor, Filters, opentelemetry-okhttp-exporter package vs minimal)
+- Show this project (AEM request of simple product, AEM request of error product, AEM request of backend product, Turn off spring boot application. Show in dashboards)
+- Show this project (Enable component filter, show in dashboards)
