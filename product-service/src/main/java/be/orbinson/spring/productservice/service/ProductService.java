@@ -1,6 +1,7 @@
 package be.orbinson.spring.productservice.service;
 
 import be.orbinson.spring.productservice.model.Product;
+import io.opentelemetry.instrumentation.annotations.SpanAttribute;
 import io.opentelemetry.instrumentation.annotations.WithSpan;
 import org.apache.commons.text.WordUtils;
 import org.slf4j.Logger;
@@ -25,7 +26,7 @@ public class ProductService {
     }
 
     @WithSpan
-    public Product getProduct(String id) throws Exception {
+    public Product getProduct(@SpanAttribute String id) throws Exception {
         // Generate service (subspan) error
         if (id.equals("product-service-error")) {
             LOGGER.warn("Product should not be used");
