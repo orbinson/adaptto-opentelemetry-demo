@@ -13,12 +13,10 @@
 
     <modules>
         <module>all</module>
-<!--        <module>frameworks</module>-->
         <module>core</module>
         <module>ui.apps</module>
         <module>ui.config</module>
         <module>ui.content</module>
-        <module>dispatcher</module>
     </modules>
 
     <properties>
@@ -35,7 +33,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2024.7.17098.20240711T134106Z-240600</aem.sdk.api>
+        <aem.sdk.api>2024.10.18175.20241010T124406Z-240900</aem.sdk.api>
         <aemanalyser.version>1.6.6</aemanalyser.version>
         <componentGroupName>AEM Site</componentGroupName>
     </properties>

@@ -2,6 +2,10 @@
 
 This project is used as reference project for the adaptTo Observability presentation of 2024
 
+```text
+127.0.0.1 aem-author product-service signoz
+```
+
 ## Installation
 
 Included is a Spring-based application and an AEM-based project to showcase on how OpenTelemetry can help you in
@@ -47,7 +51,7 @@ docker compose -f signoz/docker-compose.yaml up -d
 Alternatively, you can use the install script from their site if not all toolings are available on your local
 machine: https://signoz.io/docs/install/docker/#install-signoz-using-the-install-script
 
-Navigate to `http://localhost:3301` to log into Signoz
+Navigate to http://signoz:3301 to log into Signoz
 
 ## Usage
 
@@ -55,34 +59,23 @@ Navigate to `http://localhost:3301` to log into Signoz
 
 To create a simple trace, connecting to only one service, one can use the Spring boot application:
 
-```bash
-curl http://localhost:8080/product/simple
-```
+http://product-service:8080/product/simple
 
 To see how a errors would look like, one can use a malfunctioning product:
 
-```bash
-curl http://localhost:8080/product/uncaught-error
-```
+http://product-service:8080/product/uncaught-error
 
-```bash
-curl http://localhost:8080/product/caught-error
-```
+http://product-service:8080/product/caught-error
 
 Calling a backend, in our example AEM, can be done with one of the following products:
 
-```bash
-curl http://localhost:8080/product/backend
-```
+http://product-service:8080/product/backend
 
-```bash
-curl http://localhost:8080/product/backend-error
-```
+http://product-service:8080/product/backend-error
 
 **TODO:**
 
 - Add test urls to README
-- Add dashboards for signoz
 - Update README flow
 
 **Demo Flow**

@@ -12,21 +12,26 @@ processors:
 exporters:
   debug:
     verbosity: detailed
-
   file:
     path: /tmp/output/output.json
+  datadog:
+    api:
+      site: datadoghq.eu
+      key: ${DATADOG_API_KEY}
+    metrics:
+      resource_attributes_as_tags: true
 
 service:
   pipelines:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [file,debug]
+      exporters: [file,debug,datadog]
     metrics:
       receivers: [otlp]
       processors: [batch]
-      exporters: [file,debug]
+      exporters: [file,debug,datadog]
     logs:
       receivers: [otlp]
       processors: [batch]
-      exporters: [file,debug]
+      exporters: [file,debug,datadog]

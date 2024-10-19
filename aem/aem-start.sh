@@ -5,6 +5,7 @@ set -euo pipefail
 export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
 export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 export OTEL_SERVICE_NAME=aem-author
+export OTEL_RESOURCE_ATTRIBUTES=env=local,project=adaptTo
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -39,7 +40,6 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
         -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
         aem-*.jar \
         -nointeractive \
-        -gui \
         -r local,author \
         -p 4502 &
     PID=$!
