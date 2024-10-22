@@ -1,0 +1,22 @@
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.111.0
+    volumes:
+      - ./config/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
+      - ./output:/tmp/output
+    ports:
+      - 4317:4317 # OTLP gRPC receiver
+      - 4318:4318 # OTLP http receiver
+
+  otel-collector-datadog:
+    env_file:
+      - ./config/datadog.env
+    image: otel/opentelemetry-collector-contrib:0.111.0
+    volumes:
+      - ./config/otel-collector-config-datadog.yaml:/etc/otelcol-contrib/config.yaml
+      - ./output:/tmp/output
+    ports:
+      - 4317:4317 # OTLP gRPC receiver
+      - 4318:4318 # OTLP http receiver
+    profiles:
+      - datadog

@@ -12,6 +12,21 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 (
     cd "$SCRIPT_DIR" || exit 1
 
+    for arg in "$@"; do
+        if [ "$arg" == "--reset" ]; then
+            echo "==> Reset AEM"
+            rm -rf ./crx-quickstart || true
+            cp -r ./crx-quickstart-clean ./crx-quickstart
+            break
+        fi
+        if [ "$arg" == "--restore" ]; then
+            echo "==> Restore AEM"
+            rm -rf ./crx-quickstart || true
+            cp -r ./crx-quickstart-snapshot ./crx-quickstart
+            break
+        fi
+    done
+
     if type -p java > /dev/null; then
         JAVA_EXEC=java
     elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]]; then
@@ -40,6 +55,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
         -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
         aem-*.jar \
         -nointeractive \
+        -gui \
         -r local,author \
         -p 4502 &
     PID=$!
