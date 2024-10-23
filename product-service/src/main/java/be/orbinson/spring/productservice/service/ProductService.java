@@ -35,7 +35,7 @@ public class ProductService {
 
         String title = WordUtils.capitalizeFully(id.replace("-", " "));
         // Do a call to another http service
-        if (id.equals("backend") || id.equals("backend-error")) {
+        if (id.equals("backend")) {
             title = queryBackend();
         }
 

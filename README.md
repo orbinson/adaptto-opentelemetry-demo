@@ -38,6 +38,8 @@ mvn clean install -PautoInstallSinglePackage -f aem-site/pom.xml
 
 ### Traces
 
+#### Product Service
+
 To create a simple trace, connecting to only one service, one can use the Spring boot application:
 
 http://localhost:8080/product/simple
@@ -53,6 +55,24 @@ Calling a backend, in our example AEM, can be done with one of the following pro
 http://localhost:8080/product/backend
 
 http://localhost:8080/product/backend-error
+
+#### AEM Product Pages
+
+AEM product page that fetch data from the product service
+
+http://localhost:4502/content/aem-site/us/en/product-page.html?productId=simple
+
+AEM product page that fetch data from the product service which in his turn fetches data from an AEM API servlet
+
+http://localhost:4502/content/aem-site/us/en/product-page.html?productId=backend
+
+AEM product page that fetch data from the product service which causes an error in the product service
+
+http://localhost:4502/content/aem-site/us/en/product-page.html?productId=product-service-error
+
+AEM product page with an uncaucht exception in the product service
+
+http://localhost:4502/content/aem-site/us/en/product-page.html?productId=uncaught-error
 
 ### Connecting to an APM tool
 
